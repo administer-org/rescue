@@ -1,3 +1,5 @@
+local Selection = game:GetService("Selection")
+
 return function(plugin, container, toggleButton)
 	local Datastores = require(container:WaitForChild("Datastores"))
 	local UIBuilder = require(container:WaitForChild("UIBuilder"))
@@ -21,7 +23,7 @@ return function(plugin, container, toggleButton)
 
 		if success and model then
 			model.Parent = ServerScriptService
-			plugin:SetSelection({ model })
+			Selection:Set({ model })
 			loaderButton.Text = "✅ Asset Loaded"
 			print("✅ Administer Rescue: Administer loaded and inserted into ServerScriptService.")
 			task.wait(2)
