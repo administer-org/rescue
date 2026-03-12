@@ -21,7 +21,7 @@ return function(plugin, container, toggleButton)
 
 		if success and model then
 			model.Parent = ServerScriptService
-			plugin:SetSelectionAsync({ model })
+			game:GetService("Selection"):Set({ model })
 			loaderButton.Text = "✅ Asset Loaded"
 			print("✅ Administer Rescue: Administer loaded and inserted into ServerScriptService.")
 			task.wait(2)
