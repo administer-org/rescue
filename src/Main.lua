@@ -25,7 +25,7 @@ return function(plugin, container, toggleButton)
 
 	loaderButton.MouseButton1Click:Connect(function()
 		local InsertService = game:GetService("InsertService")
-		local assetId = 131774820303893
+		local assetId = 106385398558904
 
 		local success, model = pcall(function()
 			return InsertService:LoadAsset(assetId)
