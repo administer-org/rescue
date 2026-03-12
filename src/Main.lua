@@ -13,6 +13,16 @@ return function(plugin, container, toggleButton)
 
 	local wipeButton, loaderButton = UIBuilder.Create(widget)
 
+	local function ungroupModel(modelToUngroup)
+		local children = {}
+		for _, child in ipairs(modelToUngroup:GetChildren()) do
+			child.Parent = ServerScriptService
+			table.insert(children, child)
+		end
+		modelToUngroup:Destroy()
+		Selection:Set(children)
+	end
+
 	loaderButton.MouseButton1Click:Connect(function()
 		local InsertService = game:GetService("InsertService")
 		local assetId = 131774820303893
@@ -23,7 +33,7 @@ return function(plugin, container, toggleButton)
 
 		if success and model then
 			model.Parent = ServerScriptService
-			Selection:Set({ model })
+			ungroupModel(model)
 			loaderButton.Text = "✅ Asset Loaded"
 			print("✅ Administer Rescue: Administer loaded and inserted into ServerScriptService.")
 			task.wait(2)
