@@ -12,7 +12,7 @@ function UIBuilder.Create(parentWidget)
 	local gradient = Instance.new("UIGradient")
 	gradient.Color = ColorSequence.new({
 		ColorSequenceKeypoint.new(0, Color3.fromRGB(15, 32, 60)),
-		ColorSequenceKeypoint.new(1, Color3.fromRGB(5, 5, 5))
+		ColorSequenceKeypoint.new(1, Color3.fromRGB(5, 5, 5)),
 	})
 	gradient.Rotation = 45
 	gradient.Parent = mainFrame
@@ -40,7 +40,7 @@ function UIBuilder.Create(parentWidget)
 	title.Parent = header
 
 	local subtitle = Instance.new("TextLabel")
-	subtitle.Text = "v2.0 • DATABASE MANAGEMENT"
+	subtitle.Text = "v1.0 • ADMINISTER MANAGEMENT"
 	subtitle.Size = UDim2.new(1, 0, 0.4, 0)
 	subtitle.Position = UDim2.new(0, 0, 0.6, 0)
 	subtitle.TextColor3 = Color3.fromRGB(150, 150, 150)
@@ -85,13 +85,13 @@ function UIBuilder.Create(parentWidget)
 		stroke.Parent = btn
 
 		btn.MouseEnter:Connect(function()
-			TweenService:Create(btn, TWEEN_INFO, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)}):Play()
-			TweenService:Create(stroke, TWEEN_INFO, {Transparency = 0, Thickness = 1.5}):Play()
+			TweenService:Create(btn, TWEEN_INFO, { BackgroundColor3 = Color3.fromRGB(40, 40, 40) }):Play()
+			TweenService:Create(stroke, TWEEN_INFO, { Transparency = 0, Thickness = 1.5 }):Play()
 		end)
 
 		btn.MouseLeave:Connect(function()
-			TweenService:Create(btn, TWEEN_INFO, {BackgroundColor3 = Color3.fromRGB(25, 25, 25)}):Play()
-			TweenService:Create(stroke, TWEEN_INFO, {Transparency = 0.6, Thickness = 1}):Play()
+			TweenService:Create(btn, TWEEN_INFO, { BackgroundColor3 = Color3.fromRGB(25, 25, 25) }):Play()
+			TweenService:Create(stroke, TWEEN_INFO, { Transparency = 0.6, Thickness = 1 }):Play()
 		end)
 
 		btn.MouseButton1Down:Connect(function()
@@ -103,8 +103,8 @@ function UIBuilder.Create(parentWidget)
 		return btn
 	end
 
-	local loaderButton = createBtn("GENERATE GITHUB LOADER", Color3.fromRGB(0, 140, 255))
-	local wipeButton = createBtn("WIPE DATABASE INSTANCES", Color3.fromRGB(255, 60, 60))
+	local loaderButton = createBtn("📥 Install Administer", Color3.fromRGB(0, 140, 255))
+	local wipeButton = createBtn("⚠️ WIPE DATABASE INSTANCES", Color3.fromRGB(255, 60, 60))
 
 	return wipeButton, loaderButton
 end
